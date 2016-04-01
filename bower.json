@@ -1,0 +1,36 @@
+{
+  "name": "gadgetWeb",
+  "version": "1.0.0",
+  "dependencies": {
+    "angular": "~1.5.3",
+    "angular-animate": "~1.5.3",
+    "angular-resource": "~1.5.3",
+    "angular-bootstrap": "~0.13.4",
+    "angular-toastr": "~1.5.0",
+    "jquery": "~2.1.4",
+    "bootstrap": "~3.3.5",
+    "moment": "^2.12.0",
+    "animate.css": "~3.4.0",
+    "angular-translate": "^2.11.0",
+    "angular-ui-router": "^0.2.18"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.5.3"
+  },
+  "overrides": {
+    "bootstrap": {
+      "main": [
+        "less/bootstrap.less",
+        "dist/fonts/glyphicons-halflings-regular.eot",
+        "dist/fonts/glyphicons-halflings-regular.svg",
+        "dist/fonts/glyphicons-halflings-regular.ttf",
+        "dist/fonts/glyphicons-halflings-regular.woff",
+        "dist/fonts/glyphicons-halflings-regular.woff2"
+      ]
+    }
+  },
+  "resolutions": {
+    "jquery": "~2.1.4",
+    "angular": "~1.5.3"
+  }
+}
