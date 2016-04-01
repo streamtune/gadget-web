@@ -15,14 +15,14 @@
        * Everybody has access to these.
        * We could place these under every feature area, but this is easier to maintain.
        */
-      'app.core',
-      'app.widgets',
+      'app.core'
+      //'app.widgets',
 
-      /*git 
+      /*
        * Feature areas
        */
-      'app.dashboard',
-      'app.layout'
+      //'app.dashboard',
+      //'app.layout'
     ]);
 
 })();
