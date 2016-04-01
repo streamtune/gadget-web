@@ -18,7 +18,7 @@
       'app.core',
       'app.widgets',
 
-      /*
+      /*git 
        * Feature areas
        */
       'app.dashboard',
