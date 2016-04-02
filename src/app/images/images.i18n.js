@@ -5,7 +5,7 @@
     'use strict';
 
     angular
-        .module('app.layout')
+        .module('app.images')
         .config(translationConfig);
 
         translationConfig.$inject = ['$translateProvider'];
@@ -13,11 +13,8 @@
         /* @ngInject */
         function translationConfig($translateProvider) {
             $translateProvider.translations('en', {
-              LAYOUT: {
-                TOGGLE_NAVIGATION: 'Toggle Navigation',
-                DASHBOARD: 'Dashboard',
-                ABOUT: 'About',
-                IMAGES: 'Images'
+              IMAGES: {
+                TITLE: 'Images'
               }
             });
         }

@@ -1,0 +1,9 @@
+<table ng-table="vm.tableParams" class="table table-striped" show-filter="false">
+  <tr ng-repeat="row in $data">
+    <td data-title="'Id'" class="text-right">{{ row.Id | limitTo: 10 : 8 }}</td>
+    <td data-title="'Repo Tags'">{{ row.RepoTags }}</td>
+    <td data-title="'Created'">{{ row.Created | date: 'short' }}</td>
+    <td data-title="'Size'" class="text-right">{{ row.Size | prettyBytes }}</td>
+    <td data-title="'Virtual Size'" class="text-right">{{ row.VirtualSize | prettyBytes }}</td>
+  </tr>
+</table>

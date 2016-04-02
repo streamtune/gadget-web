@@ -22,6 +22,7 @@
        * Feature areas
        */
       'app.dashboard',
+      'app.images',
       'app.layout'
     ]);
 
