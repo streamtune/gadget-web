@@ -23,9 +23,9 @@
       appTitle = title;
     };
 
-    RouteHelper.$inject = ['$state', '$rootScope', 'logger'];
+    RouteHelper.$inject = ['$state', '$rootScope', '$location', '$translate', 'logger'];
 
-    function RouteHelper($state, $rootScope, logger) {
+    function RouteHelper($state, $rootScope, $location, $translate, logger) {
       var hasOtherwise = false;
       var handlingRouteChangeError = false;
       var routeCounts = {
@@ -46,11 +46,12 @@
       ///////////////
 
       function updateDocTitle() {
-        $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
+        $rootScope.$on('$stateChangeSuccess', function (event, toState) {
           routeCounts.changes++;
           handlingRouteChangeError = false;
-          var title = appTitle + ' - ' + (toState.data.title || '');
-          $rootScope.title = title; // data bind to <title>
+          $translate((toState.data && toState.data.title) || '').then(function (translatedTitle) {
+            $rootScope.title = appTitle + ' - ' + translatedTitle; // data bind to <title>
+          });
         });
       }
 
@@ -64,7 +65,7 @@
           var destination = (fromState && (fromState.data.title || fromState.name)) || 'unknown target';
           var msg = 'Error routing to ' + destination + '. ' + (error.msg || '');
           logger.warning(msg, [fromState]);
-          $location.path('/');
+          $location.path('/dashboard');
         });
       }
 

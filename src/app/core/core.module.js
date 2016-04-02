@@ -17,7 +17,7 @@
        */
       'blocks.exception',
       'blocks.logger',
-      'blocks.router',
+      'blocks.route',
       /*
        * 3rd Party modules
        */

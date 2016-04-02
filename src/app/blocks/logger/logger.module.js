@@ -5,5 +5,5 @@
     'use strict';
 
     angular
-        .module('blocks.logger', ['toastr']);
+        .module('blocks.logger', []);
 })();

@@ -16,10 +16,10 @@
     .value('config', config)
     .config(configureCore)
 
-    configureCore.$inject = ['$logProvider', 'routeHelperProvider', 'exceptionHandlerProvider'];
+    configureCore.$inject = ['$logProvider', '$translateProvider', 'routeHelperProvider', 'exceptionHandlerProvider'];
 
     /* @ngInject */
-    function configureCore ($logProvider, routeHelperProvider, exceptionHandlerProvider) {
+    function configureCore ($logProvider, $translateProvider, routeHelperProvider, exceptionHandlerProvider) {
       // turn debugging off/on (no info or warn)
       if ($logProvider.debugEnabled) {
         $logProvider.debugEnabled(true);
@@ -30,15 +30,17 @@
 
       // Configure the common exception handler
       exceptionHandlerProvider.configure(config.appErrorPrefix);
+
+      // Configure default translations
+      $translateProvider.preferredLanguage('en');
+      $translateProvider.useSanitizeValueStrategy('sanitize');
     }
 
-    toastrConfig.$inject = ['toastrConfig'];
+    toastrConfig.$inject = ['toastr'];
 
     /* @ngInject */
-    function toastrConfig(toastrConfig) {
-        angular.extend(toastrConfig, {
-          timeOut: 4000,
-          positionClass: 'toast-bottom-right'
-        });
+    function toastrConfig(toastr) {
+      toastr.options.timeOut = 4000;
+      toastr.options.positionClass = 'toast-bottom-right';
     }
 })();
