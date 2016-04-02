@@ -21,8 +21,10 @@
       /*
        * 3rd Party modules
        */
+      'ngTable',
       'ui.bootstrap',
-      'pascalprecht.translate'
+      'pascalprecht.translate',
+      'prettyBytes'
     ]);
 
 })();

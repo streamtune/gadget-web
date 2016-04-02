@@ -20,7 +20,9 @@
       state: 'images',
       config: {
         url: '/images',
-        template: '<h1>Images List</h1>',
+        templateUrl: 'app/images/images.html',
+        controller: 'ImagesController',
+        controllerAs: 'vm',
         data: {
           title: 'IMAGES.TITLE'
         }
