@@ -1,0 +1,11 @@
+{
+  "IMAGES": {
+    "TITLE": "Images",
+    "LIST": {
+      "ID": "Id",
+      "REPO_TAGS": "Repo Tags",
+      "CREATED": "Created",
+      "VIRTUAL_SIZE": "Virtual Size"
+    }
+  }
+}

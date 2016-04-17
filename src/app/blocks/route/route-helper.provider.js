@@ -46,17 +46,18 @@
       ///////////////
 
       function updateDocTitle() {
-        $rootScope.$on('$stateChangeSuccess', function (event, toState) {
+        var subscription = $rootScope.$on('$stateChangeSuccess', function (event, toState) {
           routeCounts.changes++;
           handlingRouteChangeError = false;
           $translate((toState.data && toState.data.title) || '').then(function (translatedTitle) {
             $rootScope.title = appTitle + ' - ' + translatedTitle; // data bind to <title>
           });
         });
+        $rootScope.$on('$destroy', subscription);
       }
 
       function handleRoutingErrors() {
-        $rootScope.$on('$stateChangeError', function (event, toState, toParams, fromState, fromParams, error) {
+        var subscription = $rootScope.$on('$stateChangeError', function (event, toState, toParams, fromState, fromParams, error) {
           if (handlingRouteChangeError) {
             return;
           }
@@ -67,6 +68,7 @@
           logger.warning(msg, [fromState]);
           $location.path('/dashboard');
         });
+        $rootScope.$on('$destroy', subscription);
       }
 
       function init() {

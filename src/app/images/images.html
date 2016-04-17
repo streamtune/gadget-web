@@ -1,9 +1,31 @@
-<table ng-table="vm.tableParams" class="table table-striped" show-filter="false">
-  <tr ng-repeat="row in $data">
-    <td data-title="'Id'" class="text-right">{{ row.Id | limitTo: 10 : 8 }}</td>
-    <td data-title="'Repo Tags'">{{ row.RepoTags }}</td>
-    <td data-title="'Created'">{{ row.Created | date: 'short' }}</td>
-    <td data-title="'Size'" class="text-right">{{ row.Size | prettyBytes }}</td>
-    <td data-title="'Virtual Size'" class="text-right">{{ row.VirtualSize | prettyBytes }}</td>
-  </tr>
-</table>
+<div class="row">
+  <div class="col-xs-12 col-sm-6 col-md-4" ng-repeat="image in vm.images">
+    <div class="panel panel-default">
+      <div class="panel-heading clearfix">
+        <h3 class="panel-title pull-left">{{ image.Tags[0].Name }} - {{ image.ID }}</h3>
+      </div>
+      <div class="panel-body">
+        <form class="form-horizontal">
+          <div class="form-group">
+            <label class="col-xs-4 control-label">Created At</label>
+            <div class="col-xs-8">
+              <p class="form-control-static">{{ image.CreatedAt | date: 'medium' }}</p>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-xs-4 control-label">Virtual Size</label>
+            <div class="col-xs-8">
+              <p class="form-control-static">{{ image.VirtualSize | prettyBytes }}</p>
+            </div>
+          </div>
+          {{ image.Tags }}
+          {{ image.Labels }}
+          {{ image.Volumes }}
+        </form>
+      </div>
+      <div class="panel-footer">
+        <small>Built with BootCards</small>
+      </div>
+    </div>
+  </div>
+</div>

@@ -19,7 +19,7 @@
     configureCore.$inject = ['$logProvider', '$translateProvider', 'routeHelperProvider', 'exceptionHandlerProvider'];
 
     /* @ngInject */
-    function configureCore ($logProvider, $translateProvider, routeHelperProvider, exceptionHandlerProvider) {
+    function configureCore($logProvider, $translateProvider, routeHelperProvider, exceptionHandlerProvider) {
       // turn debugging off/on (no info or warn)
       if ($logProvider.debugEnabled) {
         $logProvider.debugEnabled(true);
@@ -32,6 +32,9 @@
       exceptionHandlerProvider.configure(config.appErrorPrefix);
 
       // Configure default translations
+      $translateProvider.useLoader('$translatePartialLoader', {
+        urlTemplate: '/app/{part}/i18n/{lang}.json'
+      });
       $translateProvider.preferredLanguage('en');
       $translateProvider.useSanitizeValueStrategy('sanitize');
     }

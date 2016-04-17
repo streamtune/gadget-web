@@ -16,16 +16,11 @@
       bindToController: true,
       controller: AppNavbarController,
       controllerAs: 'vm',
-      link: link,
       restrict: 'E',
       scope: {},
       templateUrl: 'app/layout/app-navbar.html'
     };
     return directive;
-
-    function link(scope, element, attrs) {
-
-    }
   }
 
   AppNavbarController.$inject = ['config'];

@@ -16,16 +16,11 @@
       bindToController: true,
       controller: AppFooterController,
       controllerAs: 'vm',
-      link: link,
       restrict: 'E',
       scope: {},
       templateUrl: 'app/layout/app-footer.html'
     };
     return directive;
-
-    function link(scope, element, attrs) {
-
-    }
   }
 
   AppFooterController.$inject = [];

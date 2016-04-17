@@ -8,29 +8,25 @@
     .module('app.layout')
     .directive('appShell', appShell);
 
-  appShell.$inject = ['logger'];
+  appShell.$inject = [];
 
   /* @ngInject */
-  function appShell(logger) {
+  function appShell() {
     var directive = {
       bindToController: true,
       controller: AppShellController,
       controllerAs: 'vm',
-      link: link,
       restrict: 'E',
       scope: {},
       templateUrl: 'app/layout/app-shell.html'
     };
     return directive;
-
-    function link(scope, element, attrs) {
-    }
   }
 
-  AppShellController.$inject = ['logger'];
+  AppShellController.$inject = [];
 
   /* @ngInject */
-  function AppShellController(logger) {
+  function AppShellController() {
 
   }
 

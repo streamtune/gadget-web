@@ -1,12 +1,11 @@
-/**
- * Created by mauro on 01/04/16.
- */
-/* global toastr:false moment:false */
+/* global toastr:false moment:false _:false $:false*/
 (function () {
   'use strict';
 
   angular
     .module('app.core')
+    .constant('_', _)
+    .constant('$', $)
     .constant('toastr', toastr)
     .constant('moment', moment);
 })();

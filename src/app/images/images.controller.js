@@ -8,15 +8,13 @@
     .module('app.images')
     .controller('ImagesController', ImagesController);
 
-  ImagesController.$inject = ['imagesService', 'logger', 'NgTableParams'];
+  ImagesController.$inject = ['imagesService', 'logger'];
 
   /* @ngInject */
-  function ImagesController(imagesService, logger, NgTableParams) {
+  function ImagesController(imagesService, logger) {
     var vm = this;
 
-    vm.tableParams = new NgTableParams({
-      count: 10
-    });
+    vm.images = undefined;
 
     activate();
 
@@ -31,7 +29,7 @@
     }
 
     function imagesLoaded(data) {
-      vm.tableParams.settings({ data: data });
+      vm.images = data;
     }
 
     function imagesLoadingFailed(error) {
