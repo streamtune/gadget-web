@@ -2,10 +2,15 @@
   "IMAGES": {
     "TITLE": "Images",
     "LIST": {
-      "ID": "Id",
-      "REPO_TAGS": "Repo Tags",
-      "CREATED": "Created",
-      "VIRTUAL_SIZE": "Virtual Size"
+      "TITLE": "Images List",
+      "DESCRIPTION": "Here are shown the list of all the images available in docker repository",
+      "CREATED_AT": "Created At",
+      "VIRTUAL_SIZE": "Virtual Size",
+      "NAMES": "Names",
+      "VOLUMES_COUNT": "Volumes",
+      "LABELS": "Labels",
+      "REVIVE": "Revive",
+      "UPDATE": "Update"
     }
   }
 }

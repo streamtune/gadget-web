@@ -1,28 +1,40 @@
-<div class="row">
+<div class="page-header" translate-namespace="IMAGES.LIST">
+  <h1><span translate>.TITLE</span> <small translate>.DESCRIPTION</small></h1>
+</div>
+<div class="row" translate-namespace="IMAGES.LIST">
   <div class="col-xs-12 col-sm-6 col-md-4" ng-repeat="image in vm.images">
-    <div class="panel panel-default">
+    <div class="panel panel-info">
       <div class="panel-heading clearfix">
-        <h3 class="panel-title pull-left">{{ image.Tags[0].Name }} - {{ image.ID }}</h3>
+        <h3 class="panel-title pull-left">{{ image.ID }}</h3>
       </div>
-      <div class="panel-body">
-        <form class="form-horizontal">
-          <div class="form-group">
-            <label class="col-xs-4 control-label">Created At</label>
-            <div class="col-xs-8">
-              <p class="form-control-static">{{ image.CreatedAt | date: 'medium' }}</p>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-xs-4 control-label">Virtual Size</label>
-            <div class="col-xs-8">
-              <p class="form-control-static">{{ image.VirtualSize | prettyBytes }}</p>
-            </div>
-          </div>
-          {{ image.Tags }}
-          {{ image.Labels }}
-          {{ image.Volumes }}
-        </form>
-      </div>
+      <ul class="list-group">
+        <li class="list-group-item">
+          <strong translate>.CREATED_AT</strong>:
+          <span class="pull-right">{{ image.CreatedAt | date: 'medium' }}</span>
+        </li>
+        <li class="list-group-item">
+          <strong translate>.VIRTUAL_SIZE</strong>:
+          <span class="pull-right">{{ image.VirtualSize | prettyBytes}}</span>
+        </li>
+        <li class="list-group-item">
+          <strong translate>.NAMES</strong>:
+          <span class="pull-right">
+            <span ng-repeat="tag in image.Tags">{{ tag.Name }}<span ng-if="!$last">, </span></span>
+          </span>
+        </li>
+        <li class="list-group-item">
+          <strong translate>.VOLUMES_COUNT</strong>
+          <span class="pull-right">{{ image.Volumes.length }}</span>
+        </li>
+        <li class="list-group-item">
+          <strong translate>.LABELS</strong>
+          <span class="pull-right">
+            <span class="label label-primary" ng-repeat="label in image.Labels">
+              {{ label }}
+            </span>
+          </span>
+        </li>
+      </ul>
       <div class="panel-footer">
         <small>Built with BootCards</small>
       </div>
